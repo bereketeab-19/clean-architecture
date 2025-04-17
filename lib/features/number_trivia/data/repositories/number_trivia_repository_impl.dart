@@ -1,11 +1,10 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:clean_architecture/core/error/exceptions.dart';
-import 'package:clean_architecture/features/number_trivia/data/models/number_trivia_model.dart';
-import 'package:dartz/dartz.dart';
-
 import 'package:clean_architecture/core/network/network_info.dart';
 import 'package:clean_architecture/features/number_trivia/data/datasources/number_trivia_local_data_source.dart';
 import 'package:clean_architecture/features/number_trivia/data/datasources/number_trivia_remote_data_source.dart';
+import 'package:clean_architecture/features/number_trivia/data/models/number_trivia_model.dart';
+import 'package:dartz/dartz.dart';
 
 import '../../../../core/error/failures.dart';
 import '../../domain/entities/number_trivia.dart';
@@ -39,7 +38,6 @@ class NumberTriviaRepositoryImpl implements NumberTriviaRepository {
   }
 
   Future<Either<Failures, NumberTrivia>> _getTrivia(
-    // Future<NumberTriviaModel> Function() getConcreteOrRandom, // alternatively, you can use typedef _ConcreteOrRandom
     _ConcreteOrRandomChooser getConcreteOrRandom,
   ) async {
     final isConnected = await networkInfo.isConnected;
